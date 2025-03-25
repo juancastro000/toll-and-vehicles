@@ -33,5 +33,21 @@ public class TollStation {
     public List<Vehicle> getProcessedVehicles() {
         return processedVehicles;
     }
+    public List<String> generateReport() {
+        List<String> report = new ArrayList<>();
+        report.add("Vehículos procesados:");
+        
+        for (Vehicle vehicle : processedVehicles) {
+            String line = String.format(
+                "%s - $%d", 
+                vehicle.getPlate(), 
+                vehicle.calculateToll()
+            );
+            report.add(line);
+        }
+        
+        report.add("Total recolectado: $" + totalCollected);
+        return report;
+    }
 
 }
