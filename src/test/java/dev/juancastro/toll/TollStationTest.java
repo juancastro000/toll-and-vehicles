@@ -24,5 +24,14 @@ public class TollStationTest {
         station.processVehicle(car);
     
         assertThat(station.getTotalCollected(), is(100));
-}
+    }
+    @Test
+    void processMoto_shouldAdd50ToTotal() {
+        TollStation station = new TollStation("S1", "Medellín");
+        Vehicle moto = new Moto("XYZ789");
+    
+        station.processVehicle(moto);
+    
+        assertThat(station.getTotalCollected(), is(50));
+    }
 }
