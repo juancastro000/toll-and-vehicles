@@ -15,4 +15,14 @@ public class TollStationTest {
         assertThat(station.getCity(), is("Medellín"));
         assertThat(station.getTotalCollected(), is(0));
     }
+
+    @Test
+    void processCar_shouldAdd100ToTotal() {
+        TollStation station = new TollStation("S1", "Medellín");
+        Vehicle car = new Car("ABC123");
+    
+        station.processVehicle(car);
+    
+        assertThat(station.getTotalCollected(), is(100));
+}
 }
