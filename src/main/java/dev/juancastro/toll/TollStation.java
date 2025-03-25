@@ -30,5 +30,8 @@ public class TollStation {
         totalCollected += vehicle.calculateToll();
         processedVehicles.add(vehicle);
     }
+    public List<Vehicle> getProcessedVehicles() {
+        return processedVehicles;
+    }
 
 }
