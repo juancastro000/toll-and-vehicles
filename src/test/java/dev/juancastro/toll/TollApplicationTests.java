@@ -2,6 +2,8 @@ package dev.juancastro.toll;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
