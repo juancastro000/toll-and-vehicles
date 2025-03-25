@@ -43,4 +43,15 @@ public class TollStationTest {
     
         assertThat(station.getTotalCollected(), is(150));
     }
+    @Test
+    void getProcessedVehicles_shouldReturnAllVehicles() {
+        TollStation station = new TollStation("S1", "Medellín");
+        Vehicle car = new Car("ABC123");
+        Vehicle truck = new Truck("TRK456", 2);
+    
+        station.processVehicle(car);
+        station.processVehicle(truck);
+    
+        assertThat(station.getProcessedVehicles(), containsInAnyOrder(car, truck));
+    }
 }
