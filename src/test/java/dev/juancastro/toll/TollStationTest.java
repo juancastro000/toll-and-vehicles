@@ -28,7 +28,7 @@ public class TollStationTest {
     @Test
     void processMoto_shouldAdd50ToTotal() {
         TollStation station = new TollStation("S1", "Medellín");
-        Vehicle moto = new Moto("XYZ789");
+        Vehicle moto = new Motorbike("XYZ789");
     
         station.processVehicle(moto);
     
