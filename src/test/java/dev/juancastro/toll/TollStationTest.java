@@ -34,4 +34,13 @@ public class TollStationTest {
     
         assertThat(station.getTotalCollected(), is(50));
     }
+    @Test
+    void processTruckWith3Axles_shouldAdd150ToTotal() {
+        TollStation station = new TollStation("S1", "Medellín");
+        Vehicle truck = new Truck("TRK456", 3);
+    
+        station.processVehicle(truck);
+    
+        assertThat(station.getTotalCollected(), is(150));
+    }
 }
