@@ -3,6 +3,8 @@ package dev.juancastro.toll;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 public class TollStationTest {
@@ -53,5 +55,20 @@ public class TollStationTest {
         station.processVehicle(truck);
     
         assertThat(station.getProcessedVehicles(), containsInAnyOrder(car, truck));
+    }
+    @Test
+    void generateReport_shouldReturnFormattedStrings() {
+        TollStation station = new TollStation("S1", "Medellín");
+        station.processVehicle(new Car("ABC123"));
+        station.processVehicle(new Truck("TRK456", 2));
+    
+        List<String> report = station.generateReport();
+    
+        assertThat(report, contains(
+            "Vehículos procesados:",
+            "ABC123 - $100",
+            "TRK456 - $100",
+            "Total recolectado: $200"
+    ));
     }
 }
